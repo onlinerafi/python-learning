@@ -9,14 +9,13 @@ def determine_three_elements_add_to_k(arr, K):
     For example, given [20, 303, 3, 4, 25] and 
     k = 49, return true as 20 + 4 + 25 = 49.
     """
-    ln=len(arr)
-    for i in range(ln-2):
-        if arr[i]>=K: continue
-        for j in range(ln-1):
-            if arr[i]+arr[j]>=K: continue
-            for k in range(ln):
-                if arr[i]+arr[j]+arr[k]==K: 
-                    return True,arr[i],arr[j],arr[k]
+    for i in arr[:-2]:
+        if i >= K: continue
+        for j in arr[:-1]:
+            if sum((i, j)) >= K: continue
+            for k in arr:
+                if sum((i, j, k)) == K:
+                    return True, i, j, K
     return False
 
 def main():
