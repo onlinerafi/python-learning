@@ -11,9 +11,9 @@ def determine_three_elements_add_to_k(arr, K):
     """
     for i in arr[:-2]:
         if i >= K: continue
-        for j in arr[:-1]:
-            if sum((i, j)) >= K: continue
-            for k in arr:
+        for j in arr[arr.index(i):-1]:
+            if sum((i], j)) >= K: continue
+            for k in arr[arr.index(j):]:
                 if sum((i, j, k)) == K:
                     return True, i, j, K
     return False
